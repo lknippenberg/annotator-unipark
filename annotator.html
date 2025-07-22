@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Text markieren</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/annotator@1.2.10/annotator.min.css">
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    #text-to-annotate { border: 1px solid #ccc; padding: 15px; }
+    .annotator-hl.positive { background-color: lightgreen; }
+    .annotator-hl.negative { background-color: lightcoral; }
+  </style>
+</head>
+<body>
+
+<h3>Im Folgenden bitten wir Sie, einen Artikel aus der landwirtschaftlichen Fachpresse aufmerksam zu lesen. Bitte nutzen Sie außerdem die Markierungsfunktion, um Textstellen zu markieren, denen Sie positiv gegenüberstehen oder solche denen Sie negativ gegenüberstehen.</h3>
+
+<div id="text-to-annotate">
+  Zelluläre Landwirtschaft bezeichnet unterschiedliche biotechnologische Verfahren, bei denen Fleisch, Milch und andere tierische Produkte nicht durch Tierhaltung, sondern in Bioreaktoren hergestellt werden – teilweise ähnlich wie beim Bierbrauen. Zu diesen Verfahren gehört die Zellkultivierung sowie unterschiedliche Fermentationsprozesse. Was nach Science-Fiction klingt könnte bald Realität sein: Produkte mit Zutaten aus biotechnologischen Verfahren sind bereits in Singapur, den USA, Israel und teilweise auch in Deutschland auf dem Markt. Diese neuen Produktionsverfahren könnten zu Veränderungen landwirtschaftlicher Produktionsprozesse führen und bringen einige Chancen und Herausforderungen mit sich.  
+  So werden für diese biotechnologischen Verfahren verschiedene Ausgangsstoffe benötigt, etwa für Nährlösungen, die aus Kulturen wie Soja, Weizen, Zuckerrüben oder Erbsen stammen können. Diese teilweise auf Betrieben etablierten Kulturen könnten am Markt durch den höheren Bedarf für die zellulare Landwirtschaft höhere Erlöse erzielen. Wo diese Kulturen noch nicht angebaut werden, könnte es sich nun lohnen und so Gewinn oder Resilienz steigernd wirken. Ob jedoch alle Betriebe über die nötige Bodenbeschaffenheit und Technik verfügen, um solche Kulturen erfolgreich in die Fruchtfolge zu integrieren, ist abhängig vom Standort. Gelingt die Anpassung, könnte die Fruchtfolgenerweiterung ökologische Vorteile mit sich bringen. 
+
+  Den größten Herausforderungen dürften tierhaltende Betriebe gegenüberstehen. Für die biotechnologischen Verfahren ist nur wenige bis keine Tierhaltung notwendig. Durch die resultierenden Alternativprodukte dürften tierhaltende Betriebe verstärktem Wettbewerbsdruck ausgesetzt sein. Zugleich bieten sich neue Geschäftsfelder, zum Beispiel indem Betriebe Tiere halten, um Tierzellen für die Zellkultivierung zu liefern. Eine andere Option wäre, die Tierbestände weiterzuführen, dabei jedoch auf besondere Haltungssysteme zu setzen und die Produkte zu Premiumpreisen zu vermarkten. Dennoch könnte der Wandel insgesamt zu einem Rückgang von Arbeitsplätzen in der Landwirtschaft, insbesondere auf tierhaltenden Betrieben führen könnte.  
+  Um sich gegen die Risiken aus den potentiellen Entwicklungen abzusichern, können Landwirte in eigenen Bioreaktor investieren. Erste Modellvorhaben existieren in den Niederlanden. Dies erfordert allerdings erhebliche Investitionen in Infrastruktur und neues Fachwissen. Langfristig könnte diese Diversifizierung die Resilienz gegenüber Preis- und Nachfrageschwankungen stärken. Ob sich die hohen Anfangsinvestitionen angesichts eines noch ungewissen Marktwachstums auszahlen, ist allerdings unklar. Deswegen könnte eine genossenschaftliche Produktion einen weiteren Weg in den Zellkultivierungsmarkt bieten: Mehrere Betriebe bündeln Ressourcen, minimieren individuelle Investitionskosten und teilen Know-how. Gleichzeitig wächst die Sorge, dass große Agrarkonzerne das Geschäft dominieren und kleinere Betriebe beziehungsweise junge Genossenschaften verdrängen. 
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/annotator@1.2.10/annotator.min.js"></script>
+<script>
+  const content = document.getElementById('text-to-annotate');
+  const annotator = new Annotator(content);
+
+  annotator.addPlugin('Tags');
+  annotator.subscribe("annotationCreated", function (annotation) {
+    if (annotation.tags.includes("positiv")) {
+      annotation.highlights.forEach(el => el.classList.add("positive"));
+    }
+    if (annotation.tags.includes("negativ")) {
+      annotation.highlights.forEach(el => el.classList.add("negative"));
+    }
+  });
+</script>
+
+<p><b>Hinweis:</b> Nach dem Markieren klicken Sie auf "Speichern" und geben Sie "positiv" oder "negativ" als Tag ein.</p>
+
+</body>
+</html>
