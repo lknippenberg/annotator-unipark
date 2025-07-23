@@ -45,7 +45,13 @@
   $(function () {
     var content = $('#text').annotator();
 
-    // Manuelles Plugin zum Setzen von Farbe/Kategorie
-    content.annotator('addPlugin', 'Auth'); // notwendig, um weitere Plugins zu aktivieren
+    content.annotator('addPlugin', 'Auth');
+content.annotator('addPlugin', 'Permissions');
 
-    content.annotator('addPlugin', 'Permissions
+// Markierung einfärben – OHNE speichern
+content.annotator().on('annotationCreated', function (annotation) {
+  if (annotation.highlights) {
+    $(annotation.highlights).addClass(currentClass);
+  }
+});
+
