@@ -1,65 +1,41 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Annotator mit Farben</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <title>Text markieren</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/annotator@1.2.10/annotator.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/annotator@1.2.10/annotator.min.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
+    .annotator-hl.positiv {
+      background-color: rgba(0, 200, 0, 0.3);
     }
-    .annotator-hl[data-type="positive"] {
-      background-color: lightgreen;
-    }
-    .annotator-hl[data-type="negative"] {
-      background-color: lightcoral;
+    .annotator-hl.negativ {
+      background-color: rgba(255, 0, 0, 0.3);
     }
   </style>
 </head>
 <body>
-  <h2>Im Folgenden bitten wir Sie einen Artikel aus der landwirtschaftlichen Fachpresse aufmerksam zu lesen. Bitte nutzen Sie außerdem die Markierungsfunktion, um Textstellen zu markieren, denen Sie positiv gegenüberstehen oder solche denen Sie negativ gegenüberstehen. </h2>
+  <h2>Im Folgenden bitten wir Sie einen Artikel aus der landwirtschaftlichen Fachpresse aufmerksam zu lesen. Bitte nutzen Sie außerdem die Markierungsfunktion, um Textstellen zu markieren, denen Sie positiv gegenüberstehen oder solche denen Sie negativ gegenüberstehen.</h2>
   <p id="text">
-    Zelluläre Landwirtschaft bezeichnet unterschiedliche biotechnologische Verfahren, bei denen Fleisch, Milch und andere tierische Produkte nicht durch Tierhaltung, sondern in Bioreaktoren hergestellt werden – teilweise ähnlich wie beim Bierbrauen. Zu diesen Verfahren gehört die Zellkultivierung sowie unterschiedliche Fermentationsprozesse. Was nach Science-Fiction klingt könnte bald Realität sein: Produkte mit Zutaten aus biotechnologischen Verfahren sind bereits in Singapur, den USA, Israel und teilweise auch in Deutschland auf dem Markt. Diese neuen Produktionsverfahren könnten zu Veränderungen landwirtschaftlicher Produktionsprozesse führen und bringen einige Chancen und Herausforderungen mit sich.  
+    Zelluläre Landwirtschaft bezeichnet unterschiedliche biotechnologische Verfahren, bei denen Fleisch, Milch und andere tierische Produkte nicht durch Tierhaltung, sondern in Bioreaktoren hergestellt werden – teilweise ähnlich wie beim Bierbrauen. Zu diesen Verfahren gehört die Zellkultivierung sowie unterschiedliche Fermentationsprozesse. Was nach Science-Fiction klingt, könnte bald Realität sein: Produkte mit Zutaten aus biotechnologischen Verfahren sind bereits in Singapur, den USA, Israel und teilweise auch in Deutschland auf dem Markt. Diese neuen Produktionsverfahren könnten zu Veränderungen landwirtschaftlicher Produktionsprozesse führen und bringen einige Chancen und Herausforderungen mit sich.  
 
-    So werden für diese biotechnologischen Verfahren verschiedene Ausgangsstoffe benötigt, etwa für Nährlösungen, die aus Kulturen wie Soja, Weizen, Zuckerrüben oder Erbsen stammen können. Diese teilweise auf Betrieben etablierten Kulturen könnten am Markt durch den höheren Bedarf für die zellulare Landwirtschaft höhere Erlöse erzielen. Wo diese Kulturen noch nicht angebaut werden, könnte es sich nun lohnen und so Gewinn oder Resilienz steigernd wirken. Ob jedoch alle Betriebe über die nötige Bodenbeschaffenheit und Technik verfügen, um solche Kulturen erfolgreich in die Fruchtfolge zu integrieren, ist abhängig vom Standort. Gelingt die Anpassung, könnte die Fruchtfolgenerweiterung ökologische Vorteile mit sich bringen. 
+    So werden für diese biotechnologischen Verfahren verschiedene Ausgangsstoffe benötigt, etwa für Nährlösungen, die aus Kulturen wie Soja, Weizen, Zuckerrüben oder Erbsen stammen können. Diese teilweise auf Betrieben etablierten Kulturen könnten am Markt durch den zusätzlichen Bedarf für die zellulare Landwirtschaft höhere Erlöse erzielen. Wo diese Kulturen noch nicht angebaut werden, könnte es sich nun lohnen und so Gewinn oder Resilienz steigernd wirken. Ob jedoch alle Betriebe über die nötige Bodenbeschaffenheit und Technik verfügen, um solche Kulturen erfolgreich in die Fruchtfolge zu integrieren, ist abhängig vom Standort. Gelingt die Anpassung, könnte die Fruchtfolgenerweiterung ökologische Vorteile mit sich bringen. (9) Jedoch könnten geringere Tierbestände gleichzeitig zur Verknappung organischer Düngemittel führen und so die Kreislaufwirtschaft erschweren. 
 
-    Den größten Herausforderungen dürften tierhaltende Betriebe gegenüberstehen. Für die biotechnologischen Verfahren ist nur wenige bis keine Tierhaltung notwendig. Durch die resultierenden Alternativprodukte dürften tierhaltende Betriebe verstärktem Wettbewerbsdruck ausgesetzt sein. Zugleich bieten sich neue Geschäftsfelder, zum Beispiel indem Betriebe Tiere halten, um Tierzellen für die Zellkultivierung zu liefern. Eine andere Option wäre, die Tierbestände weiterzuführen, dabei jedoch auf besondere Haltungssysteme zu setzen und die Produkte zu Premiumpreisen zu vermarkten. Dennoch könnte der Wandel insgesamt zu einem Rückgang von Arbeitsplätzen in der Landwirtschaft, insbesondere auf tierhaltenden Betrieben führen könnte.  
+    Den größten Herausforderungen dürften ohnehin tierhaltende Betriebe gegenüberstehen. Für die biotechnologischen Verfahren ist nur wenige bis keine Tierhaltung notwendig. Hinzu kommt, dass Alternativprodukte auf dem Markt tierhaltende Betriebe verstärktem Wettbewerbsdruck aussetzen dürften. Gleichzeitig könnte sich ein Nischenmarkt öffnen: Die Produktion von Tierzellen für die Zellkultivierung. Dennoch könnte der Wandel insgesamt zu einem Rückgang von Arbeitsplätzen in der Landwirtschaft führen. Um weiter Tierbestände zu führen, könnten Landwirte auf besondere Haltungssysteme setzen zur Vermarktung als Premiumprodukt.  
 
-    Um sich gegen die Risiken aus den potentiellen Entwicklungen abzusichern, können Landwirte in eigenen Bioreaktor investieren. Erste Modellvorhaben existieren in den Niederlanden. Dies erfordert allerdings erhebliche Investitionen in Infrastruktur und neues Fachwissen. Langfristig könnte diese Diversifizierung die Resilienz gegenüber Preis- und Nachfrageschwankungen stärken. Ob sich die hohen Anfangsinvestitionen angesichts eines noch ungewissen Marktwachstums auszahlen, ist allerdings unklar. Deswegen könnte eine genossenschaftliche Produktion einen weiteren Weg in den Zellkultivierungsmarkt bieten: Mehrere Betriebe bündeln Ressourcen, minimieren individuelle Investitionskosten und teilen Know-how. Gleichzeitig wächst die Sorge, dass große Agrarkonzerne das Geschäft dominieren und kleinere Betriebe beziehungsweise junge Genossenschaften verdrängen. 
-
+    Um sich gegen die Risiken aus den potenziellen Entwicklungen abzusichern, können Landwirte in eigenen Bioreaktor investieren. Erste Modellvorhaben existieren in den Niederlanden. Dies erfordert allerdings erhebliche Investitionen in Infrastruktur und neues Fachwissen. Ob sich die hohen Anfangsinvestitionen angesichts eines noch ungewissen Marktwachstums auszahlen, ist unklar. Deswegen könnte eine genossenschaftliche Produktion ein weiterer Weg in den Zellkultivierung bieten: Mehrere Betriebe bündeln Ressourcen, teilen Investitionskosten und Know-how. Gleichzeitig wächst die Sorge, dass große Agrarkonzerne das Geschäft dominieren und kleinere Betriebe oder junge Genossenschaften verdrängen. (16) Für einige Landwirte mag die zelluläre Landwirtschaft ohnehin keine Geschäftsfeld sein, zu weit weg ist sie von ihrem identitären Selbstverständnis und ihrem Kerngeschäft. 
   </p>
+
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/annotator@1.2.10/annotator.min.js"></script>
 
   <script>
     $(function () {
-      var app = new Annotator($('#text')[0]);
-      app.addPlugin('Store', {
-        prefix: '/store',
-        urls: {
-          create: null,
-          update: null,
-          destroy: null,
-          search: null
-        }
-      });
-
-      app.addPlugin('Tags');
-
-      app.subscribe('annotationCreated', function (annotation) {
-        var type = prompt("Wie empfinden Sie diese Stelle? (positiv / negativ)");
-        if (type === 'positiv') {
-          annotation.tags = ['positive'];
-          annotation.highlights.forEach(function (el) {
-            el.setAttribute('data-type', 'positive');
-          });
-        } else if (type === 'negativ') {
-          annotation.tags = ['negative'];
-          annotation.highlights.forEach(function (el) {
-            el.setAttribute('data-type', 'negative');
-          });
-        }
+      var content = $('#text').annotator();
+      content.annotator('addPlugin', 'Categories', {
+        categories: [
+          { name: 'positiv', label: 'Positiv' },
+          { name: 'negativ', label: 'Negativ' }
+        ]
       });
     });
   </script>
