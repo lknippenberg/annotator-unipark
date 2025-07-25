@@ -76,15 +76,20 @@
 
     $(function () {
       const content = $('#text').annotator();
-
-      content.annotator('addPlugin', 'Tags');
-      content.annotator('addPlugin', 'Permissions');
-      content.annotator('addPlugin', 'Auth', {
-        token: 'test'
+      
+      content.annotator('addPlugin', 'Store', {
+        prefix: null,
+        urls: {
+          create: null,
+          update: null,
+          destroy: null,
+          search: null
+        },
+        loadFromSearch: false
       });
 
       content.annotator().on('annotationCreated', function (annotation) {
-        if (annotation.highlights) {
+        if (annotation && annotation.highlights) {
           $(annotation.highlights).addClass(currentClass);
         }
       });
