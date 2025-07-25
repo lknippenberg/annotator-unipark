@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Text markieren</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/annotator@1.2.10/annotator.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/annotator@1.2.10/annotator.full.min.css">
   <style>
     body {
       font-family: sans-serif;
@@ -77,20 +77,10 @@
     $(function () {
       const content = $('#text').annotator();
 
-      content.annotator('addPlugin', 'Store', {
-        loadFromSearch: false,
-        prefix: null,
-        annotationData: {
-          'className': function () {
-            return currentClass;
-          }
-        },
-        urls: {
-          create: null,
-          update: null,
-          destroy: null,
-          search: null
-        }
+      content.annotator('addPlugin', 'Tags');
+      content.annotator('addPlugin', 'Permissions');
+      content.annotator('addPlugin', 'Auth', {
+        token: 'test'
       });
 
       content.annotator().on('annotationCreated', function (annotation) {
